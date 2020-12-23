@@ -19,6 +19,7 @@ RUN apt update \
         rsync \
     && rm -rf /var/lib/apt/lists/*
 
-ADD entrypoint.sh /entrypoint.sh 
+COPY entrypoint.sh openwrt-imagebuilder-wrapper.sh /
 
 ENTRYPOINT ["/entrypoint.sh"]
+CMD ["imagebuilder"]
