@@ -3,20 +3,20 @@ FROM debian:11
 RUN apt update \
     && apt -y install \
         build-essential \
-        libncurses5-dev \
-        libncursesw5-dev \
-        zlib1g-dev \
+        clang \
+        flex \
+        g++ \
         gawk \
-        git \
+        gcc-multilib \
         gettext \
+        git \
+        libncurses5-dev \
         libssl-dev \
-        xsltproc \
-        wget \
-        unzip \
-        python \
-        python3 \
-        curl \
+        python3-distutils \
         rsync \
+        unzip \
+        zlib1g-dev
+        curl \
     && rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh openwrt-imagebuilder-wrapper.sh /
